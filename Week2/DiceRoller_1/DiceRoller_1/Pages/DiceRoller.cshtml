@@ -1,0 +1,51 @@
+﻿@page
+@model DiceRoller_1.Pages.DiceRollerModel
+@{
+    int randomNumber = new Random().Next(1, 7); //GENERATES NUMBER BETWEEN 1 and 6
+
+    int winningNumber = 4;
+
+    int off = Math.Abs(randomNumber - winningNumber);
+
+    string winMessage = null;
+
+    string loseMessage = null;
+
+    if (randomNumber == winningNumber)
+    {
+        winMessage = "You Won!!";
+    }
+    else
+    {
+        loseMessage = "Sorry, Better Luck Next Time!";
+    }
+}
+
+@if (randomNumber == winningNumber)
+{
+<div class="msg">
+    <h1 class="win_title text-center">@winMessage</h1>
+    <img class="image" src="~/win.gif" alt="winning_image" />
+    <div class="score">
+        <p class="text-center"><strong>Your selection:</strong>  @randomNumber</p>
+        <p class="text-center"><strong>Winning Number:</strong>  @winningNumber</p>
+        <canvas id="won"></canvas>
+    </div>
+</div>
+}
+
+else
+{
+    <h1 class="lose_title text-center">@loseMessage</h1>
+    <img class="image" src="~/lose.gif" alt="losing_image" />
+    <div class="score">
+        <p class="text-center"><strong>Your selection:</strong> @randomNumber</p>
+        <p class="text-center"><strong>Winning Number:</strong> @winningNumber</p>
+        @if (off > 0)
+        {
+            <p class="text-center font-weight-bolder">@off off </p>
+        }
+    </div>
+}
+
+
