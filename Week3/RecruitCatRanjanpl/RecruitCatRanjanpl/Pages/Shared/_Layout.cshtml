@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Penguin Global Recruiter</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="css/main.css" rel="stylesheet" type="text/css" media="screen, projection">
+</head>
+<body>
+    <div id="wrapper">
+        <header id="mainHeader">
+            <a href="/" title="home" class="logo">
+                <div class="logo">
+                    <img src="~/images/logo.jpg" alt="logo" />
+                    <h1>Penguin Global Recruiter</h1>
+                </div>
+            </a>
+            <nav id="siteNav">
+                <h1>Penguin Global Recruiter</h1>
+                <ul>
+                    <li>
+                        <a href="/OurTeam" title="Our team" class="current">Team <br /><span class="tagline">Know our Team</span></a>
+                        <ul>
+                            <li><a href="/OurTeam" title="Our tours">Team Members</a></li>
+                            <li><a href="/OurTeam" title="find tours">Join Our Team</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="/OurTeam" title="contact us" class="last">Contact <br /><span class="tagline">we're listening</span></a>
+                        <ul>
+                            <li><a href="/OurTeam" title="need help?">Support</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+
+
+        <footer id="pageFooter">
+            <section id="quickLinks">
+                <h1>Quick Links</h1>
+                <ul id="quickNav">
+                    <li><a href="/" title="Our home page">Home</a></li>
+                    <li><a href="/ourteam" title="Our Team">Our Team</a></li>
+                    <li><a href="/ourteam" title="Contact and support">Contact</a></li>
+                </ul>
+            </section>
+            <section id="footerResources">
+                <h1>Resources</h1>
+                <ul id="quickNav">
+                    <li><a href="/" title="Our home page">FAQ</a></li>
+                    <li><a href="/" title="Support">Help</a></li>
+                    <li><a href="/" title="The fine print">Legal</a></li>
+                </ul>
+            </section>
+            <section id="companyInfo">
+                <h1>Contact</h1>
+                <h2>Penguin Global Recruiters</h2>
+                <p>
+                    448 Riddle Road<br />
+                    Cincinnati, OH 45220
+                </p>
+                <p>888.777.666<br />555.444.333 <em>(24*7 support)</em></p>
+            </section>
+        </footer>
+
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+
+        @RenderSection("Scripts", required: false)
+    </div>
+</body>
+</html>
