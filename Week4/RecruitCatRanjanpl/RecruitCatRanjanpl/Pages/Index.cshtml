@@ -1,0 +1,108 @@
+﻿@page
+@model IndexModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Home page";
+}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>PGR</title>
+    <meta name="description" content="A lynda.com example of HTML5 and CSS3">
+    <meta name="keywords" content="html5, css3, lynda, local storage, canvas, forms, semantics, web apps">
+    <!--make sure mobile devices display the page at the proper scale	-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="css/main.css" rel="stylesheet" type="text/css" media="screen, projection">
+    <link href="css/jquery_widgets.css" rel="stylesheet" media="screen, projection" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+<body id="home" class="no-js">
+
+    <section id="actionCall">
+        <h1>Explore the opportunities,<br />achieve your goals.</h1>
+    </section>
+    <div id="contentWrapper">
+        <aside id="secondaryContent">
+            <div id="specials" class="callOut">
+                <h1>Services Offered</h1>
+                <h2 class="top">Mock Interviews</h2>
+                <p>
+                    Available for Fortune 400 companies <br />
+                    <a href="/?Id=2">$100</a>
+                </p>
+                <h2>Resume Evaluation</h2>
+                <p>
+                    Resume formatting and upgradation <br />
+                    <a href="/?Id=2">$50</a>
+                </p>
+                <h2>Career Fair</h2>
+                <p>
+                    Helps you with networking <br />
+                    <a href="/?Id=2">$200</a>
+                </p>
+            </div>
+            <div id="trivia" class="callOut">
+                <h1>Industries the company specializes in</h1>
+                <ul class="list-group">
+                    <li class="list-group-item">Microsoft</li>
+                    <li class="list-group-item">Google</li>
+                    <li class="list-group-item">Amazon</li>
+                </ul>
+            </div>
+        </aside>
+
+        <article id="mainArticle">
+            <h1>How to Apply</h1>
+            <p class="spotlight">We have made this process vry easy. Sign up/Login to your account, then upload your resume. You can ask for assitance with the resume evalution and get it done in an hour. Apply to the open position and get your interview schedule. Once the interview is scheduled we help you with the mock interviews. for further details feel free to reach out.</p>
+        </article>
+
+        <div class="card-deck">
+            <div class="card border-dark bg-info mb-3" style="width: 18rem;">
+                <img src="~/images/client1.jfif" class="card-img-top" alt="client1" />
+                <div class="card-body">
+                    <h5 class="card-title">Monica</h5>
+                    <p class="card-position">New York</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Received the best services. Very good assistance team.</li>
+                </ul>
+                <div class="card-body">
+                    <a href="https://www.linkedin.com/in/parul-ranjan-12a3a3185/" class="card-link">LinkedIn</a>
+                </div>
+            </div>
+            <div class="card border-dark bg-info mb-3" style="width: 18rem;">
+                <img src="~/images/client2.jfif" class="card-img-top" alt="client2" />
+                <div class="card-body">
+                    <h5 class="card-title">Chandler Bing</h5>
+                    <p class="card-position">chicago</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Thank you PGR for helping me get my dream job. The complete process is very smooth and satisfactory.</li>
+
+                </ul>
+                <div class="card-body">
+                    <a href="https://www.linkedin.com/in/parul-ranjan-12a3a3185/" class="card-link">LinkedIn</a>
+                </div>
+            </div>
+            <div class="card border-dark bg-info mb-3" style="width: 18rem;">
+                <img src="~/images/client3.jfif" class="card-img-top" alt="client3" />
+                <div class="card-body">
+                    <h5 class="card-title">Ross Geller</h5>
+                    <p class="card-position">Arizona</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Received best couselling services. Its one of the best recruiter in Town</li>
+                </ul>
+                <div class="card-body">
+                    <a href="https://www.linkedin.com/in/parul-ranjan-12a3a3185/" class="card-link">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

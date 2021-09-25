@@ -1,0 +1,90 @@
+﻿@page
+@model RecruitCatRanjanpl.Pages.Candidates.CreateModel
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Create a new Candidate";
+}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>PGR</title>
+    <meta name="description" content="A lynda.com example of HTML5 and CSS3">
+    <meta name="keywords" content="html5, css3, lynda, local storage, canvas, forms, semantics, web apps">
+    <!--make sure mobile devices display the page at the proper scale	-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="css/main.css" rel="stylesheet" type="text/css" media="screen, projection">
+    <link href="css/jquery_widgets.css" rel="stylesheet" media="screen, projection" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+<body id="home" class="no-js">
+    <h1>Create a New Candidate</h1>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Candidate.CandidateFirstName" class="control-label"></label>
+                    <input asp-for="Candidate.CandidateFirstName" class="form-control" />
+                    <span asp-validation-for="Candidate.CandidateFirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Candidate.CandidateLastName" class="control-label"></label>
+                    <input asp-for="Candidate.CandidateLastName" class="form-control" />
+                    <span asp-validation-for="Candidate.CandidateLastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Candidate.TargetSalary" class="control-label"></label>
+                    <input asp-for="Candidate.TargetSalary" class="form-control" />
+                    <span asp-validation-for="Candidate.TargetSalary" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Candidate.OptionalStartDate" class="control-label"></label>
+                    <input asp-for="Candidate.OptionalStartDate" class="form-control" />
+                    <span asp-validation-for="Candidate.OptionalStartDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Candidate.CandidateDOB" class="control-label"></label>
+                    <input asp-for="Candidate.CandidateDOB" class="form-control" />
+                    <span asp-validation-for="Candidate.CandidateDOB" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Candidate.CandidatePhoneNo" class="control-label"></label>
+                    <input asp-for="Candidate.CandidatePhoneNo" class="form-control" />
+                    <span asp-validation-for="Candidate.CandidatePhoneNo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Candidate.CompanyId" class="control-label"></label>
+                    <select asp-for="Candidate.CompanyId" class="form-control" asp-items="ViewBag.CompanyId"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Candidate.JobTitleId" class="control-label"></label>
+                    <select asp-for="Candidate.JobTitleId" class="form-control" asp-items="ViewBag.JobTitleId"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Candidate.IndustryId" class="control-label"></label>
+                    <select asp-for="Candidate.IndustryId" class="form-control" asp-items="ViewBag.IndustryId"></select>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-page="Index">Back to List</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+</body>
+</html>
