@@ -1,0 +1,44 @@
+﻿@page
+@model SellingSunsets.Pages.SalesOffices.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Sales Offices</h1>
+
+<h4>SalesOffice</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SalesOffice.SalesOfficeName" class="control-label"></label>
+                <input asp-for="SalesOffice.SalesOfficeName" class="form-control" />
+                <span asp-validation-for="SalesOffice.SalesOfficeName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SalesOffice.SalesOfficeLoc" class="control-label"></label>
+                <input asp-for="SalesOffice.SalesOfficeLoc" class="form-control" />
+                <span asp-validation-for="SalesOffice.SalesOfficeLoc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SalesOffice.SalesOfficePhNo" class="control-label"></label>
+                <input asp-for="SalesOffice.SalesOfficePhNo" class="form-control" />
+                <span asp-validation-for="SalesOffice.SalesOfficePhNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

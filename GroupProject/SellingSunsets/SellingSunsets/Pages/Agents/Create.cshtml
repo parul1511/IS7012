@@ -1,0 +1,74 @@
+﻿@page
+@model SellingSunsets.Pages.Agents.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Agents</h1>
+
+<h4>Agent</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Agent.SalesOfficeId" class="control-label"></label>
+                <select asp-for="Agent.SalesOfficeId" class="form-control" asp-items="ViewBag.SalesOfficeId"></select>
+                <span asp-validation-for="Agent.SalesOfficeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Agent.AgentName" class="control-label"></label>
+                <input asp-for="Agent.AgentName" class="form-control" />
+                <span asp-validation-for="Agent.AgentName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Agent.AgentPhNo" class="control-label"></label>
+                <input asp-for="Agent.AgentPhNo" class="form-control" />
+                <span asp-validation-for="Agent.AgentPhNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Agent.AgentAddress" class="control-label"></label>
+                <input asp-for="Agent.AgentAddress" class="form-control" />
+                <span asp-validation-for="Agent.AgentAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Agent.AgentEmailId" class="control-label"></label>
+                <input asp-for="Agent.AgentEmailId" class="form-control" />
+                <span asp-validation-for="Agent.AgentEmailId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Agent.AgentDateOfBirth" class="control-label"></label>
+                <input asp-for="Agent.AgentDateOfBirth" class="form-control" />
+                <span asp-validation-for="Agent.AgentDateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Agent.AgentRegistered" /> @Html.DisplayNameFor(model => model.Agent.AgentRegistered)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Agent.AgentSSN" class="control-label"></label>
+                <input asp-for="Agent.AgentSSN" class="form-control" />
+                <span asp-validation-for="Agent.AgentSSN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Agent.AgentSalary" class="control-label"></label>
+                <input asp-for="Agent.AgentSalary" class="form-control" />
+                <span asp-validation-for="Agent.AgentSalary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

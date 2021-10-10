@@ -1,0 +1,88 @@
+﻿@page
+@model SellingSunsets.Pages.SalesOffices.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Sales Office Details</h1>
+
+<div>
+    <h4>SalesOffice</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SalesOffice.SalesOfficeName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SalesOffice.SalesOfficeName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SalesOffice.SalesOfficeLoc)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SalesOffice.SalesOfficeLoc)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SalesOffice.SalesOfficePhNo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SalesOffice.SalesOfficePhNo)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.SalesOffice.SalesOfficeId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@if (Model.SalesOffice.Agents.Any() == false)
+{
+<div class="alert alert-info">No Agent has been created. <a asp-page="/Agents/create">Create an Agent</a></div> }
+            else
+            {
+<h4>Agents</h4>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.SalesOffice.Agents[0].AgentName)</th>
+                            <th>@Html.DisplayNameFor(model => model.SalesOffice.Agents[0].AgentPhNo)</th>
+                            <th>@Html.DisplayNameFor(model => model.SalesOffice.Agents[0].AgentEmailId)</th>
+                            <th>@Html.DisplayNameFor(model => model.SalesOffice.Agents[0].AgentAddress)</th>
+                            <th>@Html.DisplayNameFor(model => model.SalesOffice.Agents[0].AgentDateOfBirth)</th>
+                            <th>@Html.DisplayNameFor(model => model.SalesOffice.Agents[0].AgentRegistered)</th>
+                            <th>@Html.DisplayNameFor(model => model.SalesOffice.Agents[0].AgentSalary)</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.SalesOffice.Agents)
+                        {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.AgentName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.AgentPhNo)</td>
+                            <td>@Html.DisplayFor(modelItem => item.AgentEmailId)</td>
+                            <td>@Html.DisplayFor(modelItem => item.AgentAddress)</td>
+                            <td>@Html.DisplayFor(modelItem => item.AgentDateOfBirth)</td>
+                            <td>
+                                @*@Html.DisplayFor(modelItem => item.AgentRegistered)*@
+                                                        @if (item.AgentRegistered)
+                                                        {
+                                                            <span class="badge badge-warning">Yes</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span class="badge badge-secondary">No</span>
+                                                        }
+                                                    </td>
+
+                            <td>@Html.DisplayFor(modelItem => item.AgentSalary)</td>
+                            <td><a asp-page="/bankaccounts/details" asp-route-id="@item.AgentId">Details</a></td>
+                        </tr>}
+                    </tbody>
+                </table>}
+
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.SalesOffice.SalesOfficeId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

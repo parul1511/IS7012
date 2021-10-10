@@ -1,0 +1,87 @@
+﻿@page
+@model SellingSunsets.Pages.Dwellings.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>All Dwellings</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<p>
+    <a asp-page="Search">Search</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Dwelling[0].Agent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dwelling[0].City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dwelling[0].DwellingName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dwelling[0].DwellingAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dwelling[0].DwellingNoOfOccupant)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dwelling[0].DwellingArea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dwelling[0].DwellingRoom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dwelling[0].DwellingRegNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dwelling[0].DwellingDateOfReg)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Dwelling) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Agent.AgentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City.CityName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DwellingName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DwellingAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DwellingNoOfOccupant)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DwellingArea)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DwellingRoom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DwellingRegNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DwellingDateOfReg)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.DwellingId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.DwellingId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.DwellingId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

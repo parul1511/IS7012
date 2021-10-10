@@ -1,0 +1,86 @@
+﻿@page
+@model SellingSunsets.Pages.Cities.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>City Details</h1>
+
+<div>
+    <h4>City</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.City.CityName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.City.CityName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.City.CityArea)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.City.CityArea)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.City.CityState)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.City.CityState)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.City.CityCountry)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.City.CityCountry)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.City.CityId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@if (Model.City.Dwellings.Any() == false)
+{
+    <div class="alert alert-info">No Dwelling has been created. <a asp-page="/Dwellings/create">Create a Dwelling</a></div> }
+else
+{
+    <h4>Dwellings</h4>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.City.Dwellings[0].DwellingName)</th>
+                <th>@Html.DisplayNameFor(model => model.City.Dwellings[0].DwellingAddress)</th>
+                <th>@Html.DisplayNameFor(model => model.City.Dwellings[0].DwellingArea)</th>
+                <th>@Html.DisplayNameFor(model => model.City.Dwellings[0].DwellingNoOfOccupant)</th>
+                <th>@Html.DisplayNameFor(model => model.City.Dwellings[0].DwellingRoom)</th>
+                <th>@Html.DisplayNameFor(model => model.City.Dwellings[0].DwellingRegNo)</th>
+                <th>@Html.DisplayNameFor(model => model.City.Dwellings[0].DwellingDateOfReg)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.City.Dwellings)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.DwellingName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DwellingAddress)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DwellingArea)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DwellingNoOfOccupant)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DwellingRoom)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DwellingRegNo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DwellingDateOfReg)</td>
+                    <td><a asp-page="/Dwellings/details" asp-route-id="@item.DwellingId">Details</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.City.CityId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
+

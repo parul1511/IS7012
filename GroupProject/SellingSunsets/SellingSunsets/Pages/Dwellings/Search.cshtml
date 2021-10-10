@@ -1,0 +1,108 @@
+﻿@page
+@model SellingSunsets.Pages.Dwellings.SearchModel
+
+@{
+    ViewData["Title"] = "Search";
+}
+
+<h1>Search Dwelling</h1>
+<div class="row">
+    <div class="col">
+        <form action="" method="get" class="form-inline">
+            <input asp-for="Query" class="form-control mr-sm-2 mb-2" placeholder="Search Dwelling Name..." />
+            <button type="submit" class="btn btn-primary mb-2">Search</button>
+        </form>
+    </div>
+</div>
+
+@if (Model.SearchCompleted)
+{
+    if (Model.Dwelling.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Dwelling[0].DwellingName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Dwelling[0].DwellingAddress)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Dwelling[0].DwellingNoOfOccupant)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Dwelling[0].DwellingArea)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Dwelling[0].DwellingRoom)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Dwelling[0].DwellingRegNo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Dwelling[0].DwellingDateOfReg)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Dwelling[0].Agent.AgentName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Dwelling[0].City.CityName)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Dwelling)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DwellingName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DwellingAddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DwellingNoOfOccupant)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DwellingArea)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DwellingRoom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DwellingRegNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DwellingDateOfReg)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Agent.AgentName)
+                            
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.City.CityName)
+                        </td>
+                        <td>
+                            <a asp-page="./Edit" asp-route-id="@item.DwellingId">Edit</a> |
+                            <a asp-page="./Details" asp-route-id="@item.DwellingId">Details</a> |
+                            <a asp-page="./Delete" asp-route-id="@item.DwellingId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col">
+                <div class="alert alert-info">
+                    No results match your term <strong>@Model.Query</strong>
+                </div>
+            </div>
+        </div>
+    }
+}
+

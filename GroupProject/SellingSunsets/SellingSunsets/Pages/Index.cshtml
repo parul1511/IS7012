@@ -1,0 +1,121 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<div class="header" id="myHeader">
+    <h1>Our Listings</h1>
+</div>
+
+<!-- Photo Grid -->
+<div class="row">
+    <div class="column">
+        <img src="~/images/house1.jpg" style="width:100%">
+        <div class="img1">
+            $16,795,000<br />
+            <p>NY, USA</p>
+        </div>
+    </div>
+    <div class="column">
+        <img src="~/images/house11.png" style="width:100%">
+        <div class="img2">
+            $20,87,000<br />
+            <p>CA, USA</p>
+        </div>
+    </div>
+    <div class="column">
+        <img src="~/images/house10.png" style="width:100%">
+        <div class="img3">
+            $35,65,000<br />
+            <p>LA, USA</p>
+        </div>
+    </div>
+    <div class="column">
+        <img src="~/images/house12.png" style="width:100%">
+        <div class="img4">
+            45,89,000<br />
+            <p>MIA, USA</p>
+        </div>
+    </div>
+</div>
+
+<section id="ss-performance" class="ss-performance">
+    <div class="performance-wrap" data-background-attachment-rollback="">
+        <div class="container">
+            <div class="textwidget">
+                <div class="performance-title">
+                    <span>
+                        <b>
+                            WHY WORK WITH US?
+                        </b>
+                        <i class="title-line"></i>
+                    </span>
+                </div>
+                <ul class="performance-list">
+                    <li class="fast">
+                        <span>$<i>1</i>+B</span><br />Approx. Total<br>Sales
+                    </li>
+                    <li>
+                        <span><i>60</i>k</span><br />Total Email<br>Subscribers
+                    </li>
+                    <li>
+                        <span>$<i>800</i>M</span><br />Total Sales since 2016
+                    </li>
+                    <li>
+                        <span><i>500</i></span><br />Transactions since 2016
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="client">
+    <h1>WHAT OUR CLIENTS ARE SAYING</h1>
+    <div class="review1">
+        <div class="rv_img1">
+            <img src="~/images/client1.jpg" style="width:100%">
+        </div>
+        <div class="rv_text1">
+            <p>As a real estate broker, attorney and licensed contractor, Selling sunsets provides unparalleled representation in every real estate transaction. Pallabi has represented us on multiple purchases and sales and has been great to work with.<br /> -Rachel Green </p>
+        </div>
+    </div>
+    <div class="review2">
+        <div class="rv_text2">
+            <p>Trishita is an extremely effective agent and counselor. She firmly yet fairly represented my interests in all aspects of the negotiation, and was tireless in her efforts to ensure my satisfaction with every detail of the transaction. I would not hesitate to work with her again, and would strongly recommend her.<br /> -Monica Gellar </p>
+        </div>
+        <div class="rv_img2">
+            <img src="~/images/client2.jpg" style="width:100%">
+        </div>
+    </div>
+    <div class="review3">
+        <div class="rv_img3">
+            <img src="~/images/client3.jpg" style="width:100%">
+        </div>
+        <div class="rv_text3">
+            <p>Parul has worked tirelessly to find me a great deal. I trust Selling Sunsets completely, and am confident that they are looking out for my best interests. Parul is a very loyal, honest and intelligent agent who you would be lucky to have on your side.<br /> -Phoebe Buffay </p>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // Get the elements with class="column"
+    var elements = document.getElementsByClassName("column");
+
+    // Declare a loop variable
+    var i;
+
+    // Full-width images
+
+    // Four images side by side
+    function four() {
+        for (i = 0; i < elements.length; i++) {
+            elements[i].style.msFlex = "25%";  // IE10
+            elements[i].style.flex = "25%";
+        }
+    }
+
+</script>

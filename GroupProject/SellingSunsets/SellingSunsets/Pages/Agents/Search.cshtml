@@ -1,0 +1,106 @@
+﻿@page
+@model SellingSunsets.Pages.Agents.SearchModel
+
+@{
+    ViewData["Title"] = "Search";
+}
+
+<h1>Search Agents</h1>
+<div class="row">
+    <div class="col">
+        <form action="" method="get" class="form-inline">
+            <input asp-for="Query" class="form-control mr-sm-2 mb-2" placeholder="Search Dwelling Name..." />
+            <button type="submit" class="btn btn-primary mb-2">Search</button>
+        </form>
+    </div>
+</div>
+
+@if (Model.SearchCompleted)
+{
+    if (Model.Agent.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Agent[0].AgentName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Agent[0].AgentPhNo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Agent[0].AgentAddress)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Agent[0].AgentEmailId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Agent[0].AgentDateOfBirth)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Agent[0].AgentRegistered)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Agent[0].AgentSSN)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Agent[0].AgentSalary)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Agent[0].SalesOffice)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Agent)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AgentName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AgentPhNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AgentAddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AgentEmailId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AgentDateOfBirth)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AgentRegistered)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AgentSSN)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AgentSalary)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SalesOffice.SalesOfficeId)
+                        </td>
+                        <td>
+                            <a asp-page="./Edit" asp-route-id="@item.AgentId">Edit</a> |
+                            <a asp-page="./Details" asp-route-id="@item.AgentId">Details</a> |
+                            <a asp-page="./Delete" asp-route-id="@item.AgentId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col">
+                <div class="alert alert-info">
+                    No results match your term <strong>@Model.Query</strong>
+                </div>
+            </div>
+        </div>
+    }
+}

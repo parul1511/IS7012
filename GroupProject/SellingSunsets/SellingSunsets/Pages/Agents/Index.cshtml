@@ -1,0 +1,104 @@
+﻿@page
+@model SellingSunsets.Pages.Agents.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>All Agents</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Agent[0].SalesOffice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Agent[0].AgentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Agent[0].AgentPhNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Agent[0].AgentAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Agent[0].AgentEmailId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Agent[0].AgentDateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Agent[0].AgentRegistered)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Agent[0].AgentSSN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Agent[0].AgentSalary)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Agent)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SalesOffice.SalesOfficeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AgentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AgentPhNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AgentAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AgentEmailId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AgentDateOfBirth)
+                </td>
+                <td>
+                    @if (item.AgentRegistered)
+                    {
+                        <span class="badge badge-warning">Yes</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-secondary">No</span>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AgentSSN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AgentSalary)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.AgentId">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.AgentId">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.AgentId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h4>Agent Statistics</h4>
+<ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-baseline align-items-center">
+        Total Agents
+        <span class="badge badge-primary badge-pill">@Model.TotalAgents</span>"
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-baseline align-items-center">
+        Average Agents Salary
+        <span class="badge badge-primary badge-pill">@Model.AverageAgentSalary</span>"
+    </li>
+</ul>

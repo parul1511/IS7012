@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SellingSunsets</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div id="wrapper">
+        <header id="mainHeader">
+            <a href="/" title="home" class="logo">
+                <div class="logo">
+                    <img src="~/images/logo.jpg" width="200" alt="logo" />
+                    @*<h1>Selling Sunset</h1>*@
+                </div>
+            </a>
+            <nav id="siteNav">
+                <ul>
+                    <li>
+                        <a href="/aboutus" title="About Us" class="current">About Us<br /></a>
+                    </li>
+                    <li>
+                        <a href="/" title="Services" class="last">Admin<br /></a>
+                        <ul>
+                            <li><a href="/salesoffices" title="Sales Offices">Sales Offices</a></li>
+                            <li><a href="/agents" title="Agents">Agent</a></li>
+                            <li><a href="/dwellings" title="Dwellings">Dwellings</a></li>
+                            <li><a href="/cities" title="Cities">Cities</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/help" title="contact us" class="last">Help<br /></a>
+                    </li>
+                </ul>
+            </nav>
+
+            <br>
+        </header>
+        <section class="slideshow-container">
+
+            <div class="mySlides fade">
+                <img src="~/images/listing1.jpg" style="width:100%">
+                <div class="centered">
+                    Selling Sunset<br />
+                    <p>-where dreams come true!</p>
+                </div>
+            </div>
+
+            <div class="mySlides fade">
+                <img src="~/images/listing2.jpg" style="width:100%">
+                <div class="centered">
+                    Selling Sunset<br />
+                    <p>-where dreams come true!</p>
+                </div>
+            </div>
+
+            <div class="mySlides fade">
+                <img src="~/images/listing3.jpg" style="width:100%">
+                <div class="centered">
+                    Selling Sunset<br />
+                    <p>-where dreams come true!</p>
+                </div>
+            </div>
+
+        </section>
+        
+
+        <div style="text-align:center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+
+
+        <footer id="pageFooter">
+            
+            <section id="quickLinks">
+                <h1>Quick Links</h1>
+                <ul id="quickNav">
+                    <li><a href="/salesoffices" title="Our Offices">Sales Office</a></li>
+                    <li><a href="/agents" title="Agents">Agents</a></li>
+                    <li><a href="/dwellings" title="Dwellings">Dwelling</a></li>
+                    <li><a href="/cities" title="Cities">Cities</a></li>
+                </ul>
+            </section>
+            <section id="footerResources">
+                <h1>Resources</h1>
+                <ul id="quickNav">
+                    <li><a href="/" title="Our home page">FAQ</a></li>
+                    <li><a href="/help" title="Support">Help</a></li>
+                    <li><a href="/" title="Legal">Legal</a></li>
+                </ul>
+            </section>
+            <section id="companyInfo">
+                <h1>Contact</h1>
+                <h2>Selling Sunset</h2>
+                <p>
+                    448 Riddle Road<br />
+                    Cincinnati, OH 45220
+                </p>
+                <p>888.777.666<br />555.444.333 <em>(24*7 support)</em></p>
+            </section>
+        </footer>
+
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+
+        @RenderSection("Scripts", required: false)
+    </div>
+    <script>
+        var slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+    </script>
+</body>
+</html>
